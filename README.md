@@ -1,7 +1,6 @@
 # Whole Slide Imaging (ROI Annotations to ML Ready Embeddings)
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![License](https://img.shields.io/badge/license-Proprietary-lightgrey)
 
 **Objective:** Provide a production-grade, tool-agnostic pipeline that turns whole-slide images (WSI) and pathologist annotations into ML-ready datasets.
 
