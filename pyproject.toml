@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wsi-pipeline"
+version = "0.1.0"
+description = "Tool-agnostic WSI ROI curation, tiling, UNI features, and ML-ready parquet datasets."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Proprietary"}
+authors = [{name = "CHLA"}]
+
+dependencies = [
+  "numpy>=1.23,<2.0",
+  "pandas>=2.0",
+  "pyarrow>=12.0",
+  "pyyaml>=6.0",
+  "shapely>=2.0",
+  "tqdm>=4.64",
+  "pillow>=9.5",
+  "typer>=0.9",
+  "openslide-python>=1.2",
+  "torch>=2.0",
+  "timm==0.9.8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "ruff>=0.4",
+]
+
+[project.scripts]
+wsi = "wsi_pipeline.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]

@@ -1,0 +1,59 @@
+# macOS
+.DS_Store
+
+# Local project data (never commit)
+project/
+example_notebook/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.pytest_cache/
+.pytype/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.cache/
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# Build artifacts
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Model weights
+models/*.pth
+
+# Project outputs (generated)
+project/bronze/
+project/silver/
+project/gold/
+project/logs/
+project/slides/raw/
+project/annotations/raw/
+project/annotations/canonical/
+project/tiles/
+project/manifests/*.csv
+
+# Example slide-run outputs (if present)
+/tmp/wsi_slide_run/
