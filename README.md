@@ -65,27 +65,35 @@ Edit `labels/labels.yaml` and make sure all annotation labels are included.
 
 5. Build canonical ROIs
 ```bash
-wsi rois build --project /path/to/my_project --tool generic_geojson_v1
+wsi rois build --project /path/to/my_project --tool generic_geojson_v1 
+wsi rois build --project project --tool qupath_geojson --in project/labels # use this one for QuPath
 ```
 
 6. Build DeepZoom tiles
 ```bash
-wsi deepzoom build --project /path/to/my_project --tile-size 256 --overlap 0 --limit-bounds true
+wsi deepzoom build --project /path/to/my_project --tile-size 256 --overlap 0
 ```
 
 7. Build labeled tiles + PNGs
 ```bash
-wsi tiles build --project /path/to/my_project --label-overlap-threshold 0.2 --tissue-frac-threshold 0.2 --save-png true --only-labeled --max-dzi-level 2
+wsi tiles build --project /path/to/my_project --label-overlap-threshold 0.2 --tissue-frac-threshold 0.2 --save-png --only-labeled --min-dzi-level 15
 ```
 
 8. Extract UNI features
 ```bash
-wsi features extract --project /path/to/my_project --model-path /path/to/my_project/models/model.pth --batch-size 64 --device cuda --only-labeled --max-dzi-level 2
+wsi features extract --project /path/to/my_project --model-path /path/to/my_project/models/model.pth --batch-size 64 --device cuda --only-labeled --min-dzi-level 15
 ```
 
 9. Build dataset parquet
 ```bash
 wsi dataset build --project /path/to/my_project
+```
+
+ML-ready data format:
+```
+slide_id,label,embed_0,embed_1,...embed_N
+Slide-100,Tumor,0.1,0.2,...,0.3
+Slide-100,Control,0.2,0.1,...,0.2
 ```
 
 10. Outputs (tree)
